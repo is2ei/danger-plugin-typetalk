@@ -22,26 +22,6 @@ describe('postMessage()', () => {
     })
 })
 
-describe('buildEndpointURL()', () => {
-
-    it('should throw error when topic id is not given', () => {
-        expect(() => {
-            buildEndpointURI()
-        }).toThrow()
-    })
-
-    it('should build post message endpoint URL', () => {
-
-        // TOPIC_ID should be provied in environment variable.
-        process.env.TOPIC_ID = '12345'
-
-        const url = buildEndpointURI()
-        expect(url).toBe('/api/v1/topics/12345')
-
-        delete process.env.TOPIC_ID
-    })
-})
-
 describe('createMessage()', () => {
 
     const emptyResults: DangerResults = {
