@@ -1,6 +1,6 @@
 {
   "name": "danger-plugin-typetalk",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "DangerJS plugin to send report & message to Typetalk ",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
