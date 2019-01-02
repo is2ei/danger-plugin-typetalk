@@ -8,3 +8,5 @@ danger-plugin-typetalk
 
 [circleci]: https://circleci.com/gh/is2ei/danger-plugin-typetalk
 [npm]: https://badge.fury.io/js/danger-plugin-typetalk
+
+## Usage
