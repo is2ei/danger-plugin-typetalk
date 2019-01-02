@@ -19,7 +19,7 @@ const typetalkBaseURL: string = 'https://typetalk.com/'
  */
 const postMessageEndpintURI: string = '/api/v1/topics/'
 
-declare var dangerResults: DangerResults
+declare var results: DangerResults
 
 /**
  * Send report to Typetalk.
@@ -28,7 +28,7 @@ declare var dangerResults: DangerResults
  */
 export default function typetalk(options: TypetalkOptions) {
     const uri: string = buildEndpointURI()
-    const msg: string = createMessage(dangerResults)
+    const msg: string = createMessage(results)
     postMessage(uri, msg)
 }
 
