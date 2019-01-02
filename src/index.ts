@@ -81,13 +81,11 @@ export function createMessage(r: DangerResults): string {
  * @param maybeURL post message endpoint URL
  * @param message message to post
  */
-export function postMessage(maybeURL: string, message: string): void {
+export function postMessage(url: string, message: string): void {
 
-    if (maybeURL === undefined || maybeURL === '') {
+    if (url === undefined || url === '') {
         throw Error(`'url' missing - must supply valid URL`)
     }
-
-    const validURL = new URL(maybeURL).toString()
 
     if (message === undefined || message === '') {
         throw Error(`'message' missing - must supply message to post`)
@@ -113,7 +111,7 @@ export function postMessage(maybeURL: string, message: string): void {
         message: message
     }
     
-    a.post(validURL, p)
+    a.post(url, p)
     .then(function (response) {
         // Do something
     })
