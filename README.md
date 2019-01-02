@@ -9,4 +9,23 @@ danger-plugin-typetalk
 [circleci]: https://circleci.com/gh/is2ei/danger-plugin-typetalk
 [npm]: https://badge.fury.io/js/danger-plugin-typetalk
 
+## Install
+
+```
+$ yarn add danger-plugin-typetalk
+```
+
 ## Usage
+
+1) You need to set environment variables
+
+`TOPIC_ID`: Typetalk topic ID.
+`TYPETALK_TOKEN`: Typetalk token.
+
+2) Set dangerfile.js
+
+```
+const typetalk = require('danger-plugin-typetalk')
+
+typetalk.default()
+```
