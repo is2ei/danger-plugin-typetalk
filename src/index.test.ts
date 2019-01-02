@@ -1,5 +1,5 @@
 import { DangerResults } from "../node_modules/danger/distribution/dsl/DangerResults"
-import { buildEndpointURL, createMessage } from './'
+import { buildEndpointURI, createMessage } from './'
 
 describe('postMessage()', () => {
 
@@ -26,7 +26,7 @@ describe('buildEndpointURL()', () => {
 
     it('should throw error when topic id is not given', () => {
         expect(() => {
-            buildEndpointURL()
+            buildEndpointURI()
         }).toThrow()
     })
 
@@ -35,8 +35,8 @@ describe('buildEndpointURL()', () => {
         // TOPIC_ID should be provied in environment variable.
         process.env.TOPIC_ID = '12345'
 
-        const url = buildEndpointURL()
-        expect(url).toBe('https://typetalk.com/api/v1/topics/12345')
+        const url = buildEndpointURI()
+        expect(url).toBe('/api/v1/topics/12345')
 
         delete process.env.TOPIC_ID
     })

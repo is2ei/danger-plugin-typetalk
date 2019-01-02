@@ -12,10 +12,12 @@ export interface TypetalkOptions {
     url: string
 }
 
+const typetalkBaseURL: string = 'https://typetalk.com/'
+
 /**
  * Typetalk API doc: https://developer.nulab-inc.com/docs/typetalk/api/1/post-message/
  */
-const postMessageEndpintURL: string = 'https://typetalk.com/api/v1/topics/'
+const postMessageEndpintURI: string = '/api/v1/topics/'
 
 declare var dangerResults: DangerResults
 
@@ -25,54 +27,22 @@ declare var dangerResults: DangerResults
  * @param options 
  */
 export default function typetalk(options: TypetalkOptions) {
-    const url: string = buildEndpointURL()
+    const uri: string = buildEndpointURI()
     const msg: string = createMessage(dangerResults)
-    postMessage(url, msg)
-}
-
-/**
- * Post message to Typetalk
- * 
- * @param maybeURL post message endpoint URL
- * @param message message to post
- */
-export function postMessage(maybeURL: string, message: string): void {
-
-    if (maybeURL === undefined || maybeURL === '') {
-        throw Error(`'url' missing - must supply valid URL`)
-    }
-
-    const validURL = new URL(maybeURL).toString()
-
-    if (message === undefined || message === '') {
-        throw Error(`'message' missing - must supply message to post`)
-    }
-
-    let p: PostMessageRequestParam = {
-        message: message
-    }
-
-    let a = axios.create({})
-    a.post(validURL, p)
-    .then(function (response) {
-
-    })
-    .catch(function (error) {
-
-    })
+    postMessage(uri, msg)
 }
 
 /**
  * Build endpoint URL for postMessage.
  */
-export function buildEndpointURL(): string {
+export function buildEndpointURI(): string {
     const topicID = process.env.TOPIC_ID
 
     if (topicID === undefined || topicID === '') {
         throw Error(`'topic id' missing - must supply Typetalk topic id`)
     }
 
-    return postMessageEndpintURL + topicID
+    return postMessageEndpintURI + topicID
 }
 
 /**
@@ -103,4 +73,51 @@ export function createMessage(r: DangerResults): string {
     }
 
     return message
+}
+
+/**
+ * Post message to Typetalk
+ * 
+ * @param maybeURL post message endpoint URL
+ * @param message message to post
+ */
+export function postMessage(maybeURL: string, message: string): void {
+
+    if (maybeURL === undefined || maybeURL === '') {
+        throw Error(`'url' missing - must supply valid URL`)
+    }
+
+    const validURL = new URL(maybeURL).toString()
+
+    if (message === undefined || message === '') {
+        throw Error(`'message' missing - must supply message to post`)
+    }
+
+    const token = process.env.TYPETALK_TOKEN
+    if (token === undefined || token === '') {
+        throw Error(`'token' missing - must supply Typetalk topic id`)
+    }
+
+    let a = axios.create({
+        baseURL: typetalkBaseURL,
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Typetalk-Token': token,
+        },
+        responseType: 'json',
+        maxRedirects: 0,
+        proxy: false,
+    })
+
+    let p: PostMessageRequestParam = {
+        message: message
+    }
+    
+    a.post(validURL, p)
+    .then(function (response) {
+        // Do something
+    })
+    .catch(function (error) {
+        // Do something
+    })
 }
