@@ -29,3 +29,11 @@ const typetalk = require('danger-plugin-typetalk')
 
 typetalk.default()
 ```
+
+## Changelog
+
+See the GitHub [release history](https://github.com/is2ei/danger-plugin-typetalk/releases).
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
