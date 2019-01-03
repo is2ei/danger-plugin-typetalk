@@ -1,5 +1,6 @@
 import axios from "axios";
 import { DangerResults } from "../node_modules/danger/distribution/dsl/DangerResults";
+declare var results: DangerResults;
 
 interface PostMessageRequestParam {
     message: string;
@@ -8,7 +9,7 @@ interface PostMessageRequestParam {
 /**
  * Options to run typetalk()
  */
-export interface TypetalkOptions {
+export interface Options {
     url: string;
 }
 
@@ -19,14 +20,12 @@ const typetalkBaseURL: string = "https://typetalk.com/";
  */
 const postMessageEndpintURI: string = "/api/v1/topics/";
 
-declare var results: DangerResults;
-
 /**
  * Send report to Typetalk.
  *
  * @param options
  */
-export default function typetalk(options: TypetalkOptions) {
+export default function typetalk(options: Options) {
     const uri: string = buildEndpointURI();
     const msg: string = createMessage(results);
     postMessage(uri, msg);
@@ -52,9 +51,9 @@ export function buildEndpointURI(): string {
  */
 export function createMessage(r: DangerResults): string {
 
-    const fails     = r.fails;
-    const warnings  = r.warnings;
-    const messages  = r.messages;
+    const fails    = r.fails;
+    const warnings = r.warnings;
+    const messages = r.messages;
 
     if (fails.length === 0 && warnings.length === 0  && messages.length === 0) {
         return ":white_check_mark: There is nothing to report...";
