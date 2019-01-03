@@ -1,5 +1,5 @@
 import { DangerResults } from "../node_modules/danger/distribution/dsl/DangerResults";
-import { createMessage } from "./";
+import { createMessage, postMessage } from "./";
 
 describe("postMessage()", () => {
 
