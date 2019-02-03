@@ -69,7 +69,7 @@ export function createMessage(r: DangerResults): string {
     }
     if (messages.length > 0) {
         message += ":open_mouth: Message\n" ;
-        message += messages.map((m) => `• ${m.message} at ${m.file} line ${m.line}`).join("\n");
+        message += messages.map((m) => `• ${m.message}`).join("\n");
     }
 
     return message;
