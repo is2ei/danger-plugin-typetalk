@@ -27,9 +27,9 @@ $ yarn add danger-plugin-typetalk
 2) Set dangerfile.js
 
 ```
-const typetalk = require('danger-plugin-typetalk')
+const typetalk = require('danger-plugin-typetalk').default;
 
-typetalk.default()
+typetalk();
 ```
 
 ## Changelog
