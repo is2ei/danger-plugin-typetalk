@@ -3,19 +3,19 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:10.15.0
+      - image: circleci/node:10.13.0
     steps:
       - checkout
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
-      - run: yarn
+      - run: npm install
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn danger ci
+      - run: npm run danger-ci
       - run: npm run lint
       - run: npm test -- --coverage
       - run: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
