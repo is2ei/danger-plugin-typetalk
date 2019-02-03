@@ -1,12 +1,12 @@
 danger-plugin-typetalk
 ======================
 
-| Badge | Description |
-| ------------- | ------------- |
-| [![CircleCI](https://circleci.com/gh/is2ei/danger-plugin-typetalk.svg?style=svg)][circleci] | CircleCI Build Status |
-| [![npm version](https://badge.fury.io/js/danger-plugin-typetalk.svg)][npm] | Latest version |
+[![CircleCI](https://circleci.com/gh/is2ei/danger-plugin-typetalk.svg?style=svg)][circleci]
+[![Coverage Status](https://coveralls.io/repos/github/is2ei/danger-plugin-typetalk/badge.svg?branch=master)][coveralls]
+[![npm version](https://badge.fury.io/js/danger-plugin-typetalk.svg)][npm]
 
 [circleci]: https://circleci.com/gh/is2ei/danger-plugin-typetalk
+[coveralls]: https://coveralls.io/github/is2ei/danger-plugin-typetalk?branch=master
 [npm]: https://badge.fury.io/js/danger-plugin-typetalk
 
 ## Install

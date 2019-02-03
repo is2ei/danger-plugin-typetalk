@@ -9,14 +9,13 @@ jobs:
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
       - run: yarn
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn add danger
       - run: yarn danger ci
-      - run: yarn lint
-      - run: yarn test
+      - run: npm run lint
+      - run: npm test -- --coverage
+      - run: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls

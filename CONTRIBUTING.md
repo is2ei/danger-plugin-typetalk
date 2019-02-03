@@ -3,11 +3,17 @@ Here are some tips to develop this plugin.
 ## Setup
 
 ```
-$ yarn
+$ npm install
 ```
 
 ## Test
 
 ```
-$ yarn test
+$ npm test
+```
+
+## Coverage
+
+```
+$ npm test -- --coverage
 ```
