@@ -18,7 +18,7 @@
     "url": "https://github.com/is2ei/danger-plugin-typetalk/issues"
   },
   "homepage": "https://github.com/is2ei/danger-plugin-typetalk",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
