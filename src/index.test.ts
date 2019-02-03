@@ -39,7 +39,7 @@ describe("createMessage()", () => {
 
     it("should handle failure result", () => {
         const message = createMessage(failResults);
-        expect(message).toBe(":rage: Failure\n• Failure!!! at index.ts line 54321");
+        expect(message).toBe(":rage: Failure\n• Failure!!!");
     });
 
     const warnResults: DangerResults = {
@@ -51,7 +51,7 @@ describe("createMessage()", () => {
 
     it("should handle warning result", () => {
         const message = createMessage(warnResults);
-        expect(message).toBe(`:angry: Warning\n• Warning!!! at index.ts line 54321`);
+        expect(message).toBe(`:angry: Warning\n• Warning!!!`);
     });
 
     const messageResults: DangerResults = {

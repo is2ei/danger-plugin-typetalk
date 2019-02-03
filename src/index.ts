@@ -62,14 +62,19 @@ export function createMessage(r: DangerResults): string {
     let message: string = "";
 
     if (fails.length > 0) {
-        message += ":rage: Failure\n" + fails.map((f) => `• ${f.message} at ${f.file} line ${f.line}`).join("\n");
+        message += ":rage: Failure\n" + fails.map((f) => `• ${f.message}`).join("\n");
     }
     if (warnings.length > 0) {
-        message += ":angry: Warning\n" + warnings.map((w) => `• ${w.message} at ${w.file} line ${w.line}`).join("\n");
+        if (message.length > 0) {
+            message += "\n";
+        }
+        message += ":angry: Warning\n" + warnings.map((w) => `• ${w.message}`).join("\n");
     }
     if (messages.length > 0) {
-        message += ":open_mouth: Message\n" ;
-        message += messages.map((m) => `• ${m.message}`).join("\n");
+        if (message.length > 0) {
+            message += "\n";
+        }
+        message += ":open_mouth: Message\n" + messages.map((m) => `• ${m.message}`).join("\n");
     }
 
     return message;
