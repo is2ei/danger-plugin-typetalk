@@ -57,12 +57,12 @@ describe("createMessage()", () => {
     const messageResults: DangerResults = {
         fails: [],
         markdowns: [],
-        messages: [ { message: "Hello World!!!", file: "index.ts", line: 54321 } ],
+        messages: [ { message: "Hello World!!!" } ],
         warnings: [],
     };
 
     it("should handle message result", () => {
         const message = createMessage(messageResults);
-        expect(message).toBe(":open_mouth: Message\n• Hello World!!! at index.ts line 54321");
+        expect(message).toBe(":open_mouth: Message\n• Hello World!!!");
     });
 });
