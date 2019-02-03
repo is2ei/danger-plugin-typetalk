@@ -9,12 +9,6 @@ describe("postMessage()", () => {
         }).toThrow();
     });
 
-    it("should throw error when url is not valid", () => {
-        expect(() => {
-            postMessage("abcde", "message");
-        }).toThrow();
-    });
-
     it("should throw error when message is blank", () => {
         expect(() => {
             postMessage("http://example.com", "");
