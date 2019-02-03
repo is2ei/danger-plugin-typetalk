@@ -38,7 +38,7 @@ export function buildEndpointURI(): string {
     const topicID = process.env.TYPETALK_TOPIC_ID;
 
     if (topicID === undefined || topicID === "") {
-        throw Error(`'topic id' missing - must supply Typetalk topic id`);
+        throw Error(`'topic id' missing - must supply $TYPETALK_TOPIC_ID`);
     }
 
     return postMessageEndpintURI + topicID;
@@ -93,7 +93,7 @@ export function postMessage(url: string, message: string): void {
 
     const token = process.env.TYPETALK_TOKEN;
     if (token === undefined || token === "") {
-        throw Error(`'token' missing - must supply Typetalk token`);
+        throw Error(`'token' missing - must supply $TYPETALK_TOKEN`);
     }
 
     const a = axios.create({
