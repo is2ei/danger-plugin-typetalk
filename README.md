@@ -21,7 +21,7 @@ $ yarn add danger-plugin-typetalk
 
 1) You need to set environment variables
 
-`TOPIC_ID`: Typetalk topic ID.  
+`TYPETALK_TOPIC_ID`: Typetalk topic ID.  
 `TYPETALK_TOKEN`: Typetalk token.  
 
 2) Set dangerfile.js

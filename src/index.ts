@@ -35,7 +35,7 @@ export default function typetalk(options: Options) {
  * Build endpoint URL for postMessage.
  */
 export function buildEndpointURI(): string {
-    const topicID = process.env.TOPIC_ID;
+    const topicID = process.env.TYPETALK_TOPIC_ID;
 
     if (topicID === undefined || topicID === "") {
         throw Error(`'topic id' missing - must supply Typetalk topic id`);
