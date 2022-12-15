@@ -46,7 +46,7 @@
     "@types/jest": "^21.1.4",
     "@types/node": "^8.0.6",
     "coveralls": "^3.0.2",
-    "danger": "^3.0.5",
+    "danger": "^11.2.0",
     "husky": "^0.14.1",
     "jest": "^23.0.0",
     "jest-cli": "^24.0.0",
